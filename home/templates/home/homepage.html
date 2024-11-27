@@ -1,0 +1,28 @@
+{% extends "home/base.html" %}
+
+{% block title %}Scuba Diving{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-placeholder">
+        <a href="{% url 'map_url' %}">Explore the map</a>
+    </div>
+</div>
+
+<section class="section">
+    <div class="destinations">
+        <div class="destination-item">Destination 1</div>
+        <div class="destination-item">Destination 2</div>
+        <div class="destination-item">Destination 3</div>
+        <div class="destination-item">Destination 4</div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="testimonial-grid">
+        <div class="testimonial-item">Testimonial 1</div>
+        <div class="testimonial-item">Testimonial 2</div>
+        <div class="testimonial-item">Testimonial 3</div>
+    </div>
+</section>
+{% endblock %}
