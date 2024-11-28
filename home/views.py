@@ -14,3 +14,4 @@ def test(request):
 
 def map_page(request):
     return render(request, "home/map.html")
+

@@ -2,15 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='media/app_pictures/default_profile_pic.jpg', upload_to='media/profile_pictures/')
+    image = models.ImageField(default='app_pictures/default_profile_pic.jpg', upload_to='profile_pictures/')
 
     def __str__(self):
-        return f"{self}'s profile"
+        return f"{self.user.username}'s profile"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         img = Image.open(self.image.path)
         min_dim = min(img.width, img.height)
         img = img.crop((0, 0, min_dim, min_dim))

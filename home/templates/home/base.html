@@ -31,50 +31,46 @@
         header .menu {
             display: flex;
             gap: 20px;
-        }
-
-        header .menu div {
-            display: flex;
-            width: 80px;
-            height: 30px;
-            background-color: #007a9e;
-            border-radius: 5px;
             justify-content: center;
             align-items: center;
         }
-        header .menu div:hover{
+
+        .menu_profile_pic{
+            object-fit: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .menu_profile_pic:hover{
             background-color:white;
+            color:white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             transition: 0.3s;
         }
 
         .link {
             color:white;
             text-decoration: none;
-        }
-        .link:hover{
-            color:#007a9e;
-            text-decoration: none;
-        }
-
-        .hero {
-            background-color: #005f73;
-            height: 60vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-
-        .hero-placeholder {
-            width: 80%;
-            height: 50%;
+            width: 100px;
+            height: 30px;
             background-color: #007a9e;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
+            border-radius: 5px;
             justify-content: center;
-            font-size: 1.5em;
+            align-items: center;
         }
+        .link:hover {
+            color: #007a9e;
+            text-decoration: none;
+            background-color: white;
+            transition: 0.3s;
+            width: 110px;
+            height: 40px;
+        }
+
+
 
         .section {
             padding: 50px 20px;
@@ -135,18 +131,22 @@
         </div>
         <div class="menu">
             {% if  user.is_authenticated %}
-            <div>
-                <a href="#" class="link">Profile</a>
+
+            <div class="menu_div">
+                <a href="{% url 'logout_url' %}" class="link">Log out</a>
             </div>
-            <div>
-                <a href="#" class="link">Log out</a>
+            {% if user.is_authenticated %}
+            <div style="">
+                <a href="{% url 'profile_url' %}"><img class="menu_profile_pic" src="{{ user.profile.image.url }}" alt="Picture not found"/> </a>
             </div>
+
+            {% endif %}
             {% else %}
-                <div>
-                    <a href="{% url "login_url" %}" class="link">Log in</a>
+                <div class="menu_div">
+                    <a href="{% url 'login_url' %}" class="link">Log in</a>
                 </div>
-                <div>
-                    <a href="{% url "register_url" %}" class="link">Sign up</a>
+                <div class="menu_div">
+                    <a href="{% url 'register_url' %}" class="link">Sign up</a>
                 </div>
             {% endif %}
         </div>

@@ -1,11 +1,52 @@
 {% extends "home/base.html" %}
 
-{% block title %}Scuba Diving{% endblock %}
-
 {% block content %}
+<style>
+    .explore_map_link{
+        color:white;
+        font-weight: bold;
+        background-color: #d3c2ae;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 300px;
+        height: 100px;
+    }
+    .explore_map_link:hover{
+        color:#d3c2ae;
+        background-color: white;
+        width: 330px;
+        height: 120px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .hero {
+        background-color: #005f73;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .hero-placeholder {
+        display: flex;
+        width: 80%;
+        height: 50%;
+        background-image: url('media/app_pictures/hero_background.png'); /* Set the image */
+        background-size: cover; /* Make sure the image covers the whole area */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        background-color: #007a9e;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+    }
+</style>
 <div class="hero">
     <div class="hero-placeholder">
-        <a href="{% url 'map_url' %}">Explore the map</a>
+        <a href="{% url 'map_url' %}" class="explore_map_link">Explore the map</a>
     </div>
 </div>
 
