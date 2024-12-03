@@ -18,3 +18,6 @@ def register(request):
 
 def profile(request):
     return render(request, "users/main_profile.html")
+
+def profile_about(request):
+    return render(request, "users/main_profile_about.html")

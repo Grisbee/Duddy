@@ -29,6 +29,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout_url'),
     path('register/', user_views.register, name="register_url"),
     path('profile/', user_views.profile, name="profile_url"),
+    path('profile/about/', user_views.profile_about, name="profile_about_url"),
 ]
 
 if settings.DEBUG:
